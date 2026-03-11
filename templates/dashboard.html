@@ -126,7 +126,6 @@
     </style>
 </head>
 <body>
-
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
     <div class="sidebar" id="adminSidebar">
@@ -136,13 +135,13 @@
         </div>
         
         <div class="sidebar-content">
-            <a href="/record_order" style="text-decoration: none;">
+            <a href="{{ url_for('admin.record_order') }}" style="text-decoration: none;">
                 <button class="sidebar-submit" style="margin-bottom: 25px; background: var(--primary-start);">+ Record New Order</button>
             </a>
 
             <div class="admin-form-group">
                 <h4>Add Customer</h4>
-                <form action="/add_customer" method="POST">
+                <form action="{{ url_for('admin.add_customer') }}" method="POST">
                     <input type="text" name="customer_name" placeholder="Customer Name" required>
                     <button type="submit" class="sidebar-submit">Add</button>
                 </form>
@@ -152,7 +151,7 @@
 
             <div class="admin-form-group">
                 <h4>Add Menu Item</h4>
-                <form action="/add_menu_item" method="POST">
+                <form action="{{ url_for('admin.add_menu_item') }}" method="POST">
                     <input type="text" name="item_name" placeholder="Food Name" required>
                     <input type="number" step="0.01" name="item_price" placeholder="Price (₱)" required>
                     <button type="submit" class="sidebar-submit">Add</button>
@@ -160,7 +159,7 @@
             </div>
         </div>
         
-        <a href="{{ url_for('logout') }}" class="sidebar-logout">Logout</a>
+        <a href="{{ url_for('auth.logout') }}" class="sidebar-logout">Logout</a>
     </div>
 
     <div class="dashboard-container">
@@ -172,7 +171,7 @@
             <h2>Chew & Due</h2>
         </div>
 
-        <a href="/record_order" style="text-decoration: none;">
+        <a href="{{ url_for('admin.record_order') }}" style="text-decoration: none;">
             <button style="margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
                 + Record Customer Order
             </button>
